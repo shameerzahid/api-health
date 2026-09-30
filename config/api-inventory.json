@@ -1,0 +1,3038 @@
+{
+  "generatedAt": "2026-09-30T06:02:23.380Z",
+  "source": "/Users/muhammad/Desktop/foundation-project/foundation-be/src",
+  "total": 303,
+  "smokeCount": 70,
+  "routes": [
+    {
+      "id": "post-api-v1-api-usage-client",
+      "name": "POST /api/v1/api-usage/client",
+      "method": "POST",
+      "path": "/api/v1/api-usage/client",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-areas",
+      "name": "GET /api/v1/areas",
+      "method": "GET",
+      "path": "/api/v1/areas",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-areas",
+      "name": "POST /api/v1/areas",
+      "method": "POST",
+      "path": "/api/v1/areas",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-areas-id",
+      "name": "DELETE /api/v1/areas/:id",
+      "method": "DELETE",
+      "path": "/api/v1/areas/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-areas-id",
+      "name": "GET /api/v1/areas/:id",
+      "method": "GET",
+      "path": "/api/v1/areas/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-areas-id",
+      "name": "PATCH /api/v1/areas/:id",
+      "method": "PATCH",
+      "path": "/api/v1/areas/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-auth-accept-invite",
+      "name": "POST /api/v1/auth/accept-invite",
+      "method": "POST",
+      "path": "/api/v1/auth/accept-invite",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-auth-access-token",
+      "name": "GET /api/v1/auth/access-token",
+      "method": "GET",
+      "path": "/api/v1/auth/access-token",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-auth-forgot-password",
+      "name": "POST /api/v1/auth/forgot-password",
+      "method": "POST",
+      "path": "/api/v1/auth/forgot-password",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-auth-login",
+      "name": "POST /api/v1/auth/login",
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-auth-logout",
+      "name": "POST /api/v1/auth/logout",
+      "method": "POST",
+      "path": "/api/v1/auth/logout",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-auth-me",
+      "name": "GET /api/v1/auth/me",
+      "method": "GET",
+      "path": "/api/v1/auth/me",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-auth-refresh",
+      "name": "POST /api/v1/auth/refresh",
+      "method": "POST",
+      "path": "/api/v1/auth/refresh",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-auth-register",
+      "name": "POST /api/v1/auth/register",
+      "method": "POST",
+      "path": "/api/v1/auth/register",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-auth-resend-token",
+      "name": "POST /api/v1/auth/resend-token",
+      "method": "POST",
+      "path": "/api/v1/auth/resend-token",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-auth-reset-password",
+      "name": "POST /api/v1/auth/reset-password",
+      "method": "POST",
+      "path": "/api/v1/auth/reset-password",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-auth-verify-email",
+      "name": "POST /api/v1/auth/verify-email",
+      "method": "POST",
+      "path": "/api/v1/auth/verify-email",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-contacts",
+      "name": "GET /api/v1/contacts",
+      "method": "GET",
+      "path": "/api/v1/contacts",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-contacts",
+      "name": "POST /api/v1/contacts",
+      "method": "POST",
+      "path": "/api/v1/contacts",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-contacts-id",
+      "name": "DELETE /api/v1/contacts/:id",
+      "method": "DELETE",
+      "path": "/api/v1/contacts/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-contacts-id",
+      "name": "GET /api/v1/contacts/:id",
+      "method": "GET",
+      "path": "/api/v1/contacts/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-contacts-id",
+      "name": "PATCH /api/v1/contacts/:id",
+      "method": "PATCH",
+      "path": "/api/v1/contacts/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-contacts-bulk",
+      "name": "POST /api/v1/contacts/bulk",
+      "method": "POST",
+      "path": "/api/v1/contacts/bulk",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers",
+      "name": "GET /api/v1/customers",
+      "method": "GET",
+      "path": "/api/v1/customers",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-customers",
+      "name": "POST /api/v1/customers",
+      "method": "POST",
+      "path": "/api/v1/customers",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id",
+      "name": "GET /api/v1/customers/:id",
+      "method": "GET",
+      "path": "/api/v1/customers/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-customers-id",
+      "name": "PATCH /api/v1/customers/:id",
+      "method": "PATCH",
+      "path": "/api/v1/customers/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-customers-id-activate",
+      "name": "POST /api/v1/customers/:id/activate",
+      "method": "POST",
+      "path": "/api/v1/customers/:id/activate",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-customers-id-deactivate",
+      "name": "POST /api/v1/customers/:id/deactivate",
+      "method": "POST",
+      "path": "/api/v1/customers/:id/deactivate",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-edit",
+      "name": "GET /api/v1/customers/:id/edit",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/edit",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-customers-id-notes",
+      "name": "PATCH /api/v1/customers/:id/notes",
+      "method": "PATCH",
+      "path": "/api/v1/customers/:id/notes",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-properties",
+      "name": "GET /api/v1/customers/:id/properties",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/properties",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-customers-id-properties",
+      "name": "POST /api/v1/customers/:id/properties",
+      "method": "POST",
+      "path": "/api/v1/customers/:id/properties",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-customers-id-properties-propertyid",
+      "name": "DELETE /api/v1/customers/:id/properties/:propertyId",
+      "method": "DELETE",
+      "path": "/api/v1/customers/:id/properties/:propertyId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-properties-propertyid",
+      "name": "GET /api/v1/customers/:id/properties/:propertyId",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/properties/:propertyId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-customers-id-properties-propertyid",
+      "name": "PATCH /api/v1/customers/:id/properties/:propertyId",
+      "method": "PATCH",
+      "path": "/api/v1/customers/:id/properties/:propertyId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-properties-propertyid-visits",
+      "name": "GET /api/v1/customers/:id/properties/:propertyId/visits",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/properties/:propertyId/visits",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-customers-id-properties-propertyid-visits",
+      "name": "POST /api/v1/customers/:id/properties/:propertyId/visits",
+      "method": "POST",
+      "path": "/api/v1/customers/:id/properties/:propertyId/visits",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-customers-id-service-templates",
+      "name": "POST /api/v1/customers/:id/service-templates",
+      "method": "POST",
+      "path": "/api/v1/customers/:id/service-templates",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-customers-id-service-templates-templateid",
+      "name": "DELETE /api/v1/customers/:id/service-templates/:templateId",
+      "method": "DELETE",
+      "path": "/api/v1/customers/:id/service-templates/:templateId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-customers-id-service-templates-templateid",
+      "name": "PATCH /api/v1/customers/:id/service-templates/:templateId",
+      "method": "PATCH",
+      "path": "/api/v1/customers/:id/service-templates/:templateId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-customers-id-team",
+      "name": "POST /api/v1/customers/:id/team",
+      "method": "POST",
+      "path": "/api/v1/customers/:id/team",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-team-members",
+      "name": "GET /api/v1/customers/:id/team-members",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/team-members",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-customers-id-team-memberid",
+      "name": "DELETE /api/v1/customers/:id/team/:memberId",
+      "method": "DELETE",
+      "path": "/api/v1/customers/:id/team/:memberId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-customers-id-team-memberid",
+      "name": "PATCH /api/v1/customers/:id/team/:memberId",
+      "method": "PATCH",
+      "path": "/api/v1/customers/:id/team/:memberId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-upcoming-visits",
+      "name": "GET /api/v1/customers/:id/upcoming-visits",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/upcoming-visits",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-visit-history",
+      "name": "GET /api/v1/customers/:id/visit-history",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/visit-history",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-visit-options",
+      "name": "GET /api/v1/customers/:id/visit-options",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/visit-options",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-id-visits",
+      "name": "GET /api/v1/customers/:id/visits",
+      "method": "GET",
+      "path": "/api/v1/customers/:id/visits",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-customers-identities",
+      "name": "GET /api/v1/customers/identities",
+      "method": "GET",
+      "path": "/api/v1/customers/identities",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-customers-onboarding",
+      "name": "GET /api/v1/customers/onboarding",
+      "method": "GET",
+      "path": "/api/v1/customers/onboarding",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-customers-visit-options",
+      "name": "GET /api/v1/customers/visit-options",
+      "method": "GET",
+      "path": "/api/v1/customers/visit-options",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-collections",
+      "name": "GET /api/v1/dashboard/collections",
+      "method": "GET",
+      "path": "/api/v1/dashboard/collections",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-field-activity",
+      "name": "GET /api/v1/dashboard/field-activity",
+      "method": "GET",
+      "path": "/api/v1/dashboard/field-activity",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-field-staff-performance",
+      "name": "GET /api/v1/dashboard/field-staff-performance",
+      "method": "GET",
+      "path": "/api/v1/dashboard/field-staff-performance",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-monthly-visit-performance",
+      "name": "GET /api/v1/dashboard/monthly-visit-performance",
+      "method": "GET",
+      "path": "/api/v1/dashboard/monthly-visit-performance",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-monthly-visit-progress",
+      "name": "GET /api/v1/dashboard/monthly-visit-progress",
+      "method": "GET",
+      "path": "/api/v1/dashboard/monthly-visit-progress",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-monthly-visits-by-service-type",
+      "name": "GET /api/v1/dashboard/monthly-visits-by-service-type",
+      "method": "GET",
+      "path": "/api/v1/dashboard/monthly-visits-by-service-type",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-overview",
+      "name": "GET /api/v1/dashboard/overview",
+      "method": "GET",
+      "path": "/api/v1/dashboard/overview",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-quote-conversion",
+      "name": "GET /api/v1/dashboard/quote-conversion",
+      "method": "GET",
+      "path": "/api/v1/dashboard/quote-conversion",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-dashboard-upcoming-schedule",
+      "name": "GET /api/v1/dashboard/upcoming-schedule",
+      "method": "GET",
+      "path": "/api/v1/dashboard/upcoming-schedule",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-employee-day-areas",
+      "name": "GET /api/v1/employee-day-areas",
+      "method": "GET",
+      "path": "/api/v1/employee-day-areas",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "put-api-v1-employee-day-areas",
+      "name": "PUT /api/v1/employee-day-areas",
+      "method": "PUT",
+      "path": "/api/v1/employee-day-areas",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-employee-day-areas-id",
+      "name": "DELETE /api/v1/employee-day-areas/:id",
+      "method": "DELETE",
+      "path": "/api/v1/employee-day-areas/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees",
+      "name": "GET /api/v1/employees",
+      "method": "GET",
+      "path": "/api/v1/employees",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-employees-id",
+      "name": "GET /api/v1/employees/:id",
+      "method": "GET",
+      "path": "/api/v1/employees/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-employees-id",
+      "name": "PATCH /api/v1/employees/:id",
+      "method": "PATCH",
+      "path": "/api/v1/employees/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-id-deactivate",
+      "name": "POST /api/v1/employees/:id/deactivate",
+      "method": "POST",
+      "path": "/api/v1/employees/:id/deactivate",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-id-leaves",
+      "name": "GET /api/v1/employees/:id/leaves",
+      "method": "GET",
+      "path": "/api/v1/employees/:id/leaves",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-id-leaves",
+      "name": "POST /api/v1/employees/:id/leaves",
+      "method": "POST",
+      "path": "/api/v1/employees/:id/leaves",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-employees-id-leaves-leaveid",
+      "name": "DELETE /api/v1/employees/:id/leaves/:leaveId",
+      "method": "DELETE",
+      "path": "/api/v1/employees/:id/leaves/:leaveId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-employees-id-leaves-leaveid",
+      "name": "PATCH /api/v1/employees/:id/leaves/:leaveId",
+      "method": "PATCH",
+      "path": "/api/v1/employees/:id/leaves/:leaveId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-id-reactivate",
+      "name": "POST /api/v1/employees/:id/reactivate",
+      "method": "POST",
+      "path": "/api/v1/employees/:id/reactivate",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-id-shift",
+      "name": "GET /api/v1/employees/:id/shift",
+      "method": "GET",
+      "path": "/api/v1/employees/:id/shift",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "put-api-v1-employees-id-shift",
+      "name": "PUT /api/v1/employees/:id/shift",
+      "method": "PUT",
+      "path": "/api/v1/employees/:id/shift",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-id-upcoming-visits",
+      "name": "GET /api/v1/employees/:id/upcoming-visits",
+      "method": "GET",
+      "path": "/api/v1/employees/:id/upcoming-visits",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-id-visit-timeline",
+      "name": "GET /api/v1/employees/:id/visit-timeline",
+      "method": "GET",
+      "path": "/api/v1/employees/:id/visit-timeline",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-field-staff",
+      "name": "GET /api/v1/employees/field-staff",
+      "method": "GET",
+      "path": "/api/v1/employees/field-staff",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-employees-field-staff-teams",
+      "name": "POST /api/v1/employees/field-staff-teams",
+      "method": "POST",
+      "path": "/api/v1/employees/field-staff-teams",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-employees-field-staff-teams-id",
+      "name": "DELETE /api/v1/employees/field-staff-teams/:id",
+      "method": "DELETE",
+      "path": "/api/v1/employees/field-staff-teams/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-field-staff-teams-id",
+      "name": "GET /api/v1/employees/field-staff-teams/:id",
+      "method": "GET",
+      "path": "/api/v1/employees/field-staff-teams/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-employees-field-staff-teams-id",
+      "name": "PATCH /api/v1/employees/field-staff-teams/:id",
+      "method": "PATCH",
+      "path": "/api/v1/employees/field-staff-teams/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-field-staff-teams-id-deactivate",
+      "name": "POST /api/v1/employees/field-staff-teams/:id/deactivate",
+      "method": "POST",
+      "path": "/api/v1/employees/field-staff-teams/:id/deactivate",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-field-staff-teams-id-end",
+      "name": "POST /api/v1/employees/field-staff-teams/:id/end",
+      "method": "POST",
+      "path": "/api/v1/employees/field-staff-teams/:id/end",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-field-staff-teams-id-reactivate",
+      "name": "POST /api/v1/employees/field-staff-teams/:id/reactivate",
+      "method": "POST",
+      "path": "/api/v1/employees/field-staff-teams/:id/reactivate",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-field-staff-teams-field-staff",
+      "name": "GET /api/v1/employees/field-staff-teams/field-staff",
+      "method": "GET",
+      "path": "/api/v1/employees/field-staff-teams/field-staff",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-employees-field-staff-assignee-picker",
+      "name": "GET /api/v1/employees/field-staff/assignee-picker",
+      "method": "GET",
+      "path": "/api/v1/employees/field-staff/assignee-picker",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-employees-identities",
+      "name": "GET /api/v1/employees/identities",
+      "method": "GET",
+      "path": "/api/v1/employees/identities",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-employees-invite-email-availability",
+      "name": "GET /api/v1/employees/invite-email-availability",
+      "method": "GET",
+      "path": "/api/v1/employees/invite-email-availability",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-employees-invite-email-availability-bulk",
+      "name": "POST /api/v1/employees/invite-email-availability/bulk",
+      "method": "POST",
+      "path": "/api/v1/employees/invite-email-availability/bulk",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-invites",
+      "name": "GET /api/v1/employees/invites",
+      "method": "GET",
+      "path": "/api/v1/employees/invites",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-employees-invites",
+      "name": "POST /api/v1/employees/invites",
+      "method": "POST",
+      "path": "/api/v1/employees/invites",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-invites-id-cancel",
+      "name": "POST /api/v1/employees/invites/:id/cancel",
+      "method": "POST",
+      "path": "/api/v1/employees/invites/:id/cancel",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-invites-id-resend",
+      "name": "POST /api/v1/employees/invites/:id/resend",
+      "method": "POST",
+      "path": "/api/v1/employees/invites/:id/resend",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-employees-invites-bulk",
+      "name": "POST /api/v1/employees/invites/bulk",
+      "method": "POST",
+      "path": "/api/v1/employees/invites/bulk",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-employees-managers",
+      "name": "GET /api/v1/employees/managers",
+      "method": "GET",
+      "path": "/api/v1/employees/managers",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-field-staff-team-day-areas",
+      "name": "GET /api/v1/field-staff-team-day-areas",
+      "method": "GET",
+      "path": "/api/v1/field-staff-team-day-areas",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "put-api-v1-field-staff-team-day-areas",
+      "name": "PUT /api/v1/field-staff-team-day-areas",
+      "method": "PUT",
+      "path": "/api/v1/field-staff-team-day-areas",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-field-staff-team-day-areas-id",
+      "name": "DELETE /api/v1/field-staff-team-day-areas/:id",
+      "method": "DELETE",
+      "path": "/api/v1/field-staff-team-day-areas/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-auth-accept-invite",
+      "name": "POST /api/v1/field/auth/accept-invite",
+      "method": "POST",
+      "path": "/api/v1/field/auth/accept-invite",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-auth-forgot-password",
+      "name": "POST /api/v1/field/auth/forgot-password",
+      "method": "POST",
+      "path": "/api/v1/field/auth/forgot-password",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-auth-login",
+      "name": "POST /api/v1/field/auth/login",
+      "method": "POST",
+      "path": "/api/v1/field/auth/login",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-auth-refresh",
+      "name": "POST /api/v1/field/auth/refresh",
+      "method": "POST",
+      "path": "/api/v1/field/auth/refresh",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-auth-resend-otp",
+      "name": "POST /api/v1/field/auth/resend-otp",
+      "method": "POST",
+      "path": "/api/v1/field/auth/resend-otp",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-auth-reset-password",
+      "name": "POST /api/v1/field/auth/reset-password",
+      "method": "POST",
+      "path": "/api/v1/field/auth/reset-password",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-auth-verify-reset-code",
+      "name": "POST /api/v1/field/auth/verify-reset-code",
+      "method": "POST",
+      "path": "/api/v1/field/auth/verify-reset-code",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-auth-verify-reset-token",
+      "name": "POST /api/v1/field/auth/verify-reset-token",
+      "method": "POST",
+      "path": "/api/v1/field/auth/verify-reset-token",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-correction-requests",
+      "name": "GET /api/v1/field/correction-requests",
+      "method": "GET",
+      "path": "/api/v1/field/correction-requests",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-dashboard",
+      "name": "GET /api/v1/field/dashboard",
+      "method": "GET",
+      "path": "/api/v1/field/dashboard",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "put-api-v1-field-devices-push-token",
+      "name": "PUT /api/v1/field/devices/push-token",
+      "method": "PUT",
+      "path": "/api/v1/field/devices/push-token",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-field-me",
+      "name": "DELETE /api/v1/field/me",
+      "method": "DELETE",
+      "path": "/api/v1/field/me",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-me",
+      "name": "GET /api/v1/field/me",
+      "method": "GET",
+      "path": "/api/v1/field/me",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-field-me",
+      "name": "PATCH /api/v1/field/me",
+      "method": "PATCH",
+      "path": "/api/v1/field/me",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-notifications",
+      "name": "GET /api/v1/field/notifications",
+      "method": "GET",
+      "path": "/api/v1/field/notifications",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-field-notifications-id-read",
+      "name": "PATCH /api/v1/field/notifications/:id/read",
+      "method": "PATCH",
+      "path": "/api/v1/field/notifications/:id/read",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-routes",
+      "name": "GET /api/v1/field/routes",
+      "method": "GET",
+      "path": "/api/v1/field/routes",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-visits-visitid",
+      "name": "GET /api/v1/field/visits/:visitId",
+      "method": "GET",
+      "path": "/api/v1/field/visits/:visitId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-breaks-breakid-end",
+      "name": "POST /api/v1/field/visits/:visitId/breaks/:breakId/end",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/breaks/:breakId/end",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-breaks-start",
+      "name": "POST /api/v1/field/visits/:visitId/breaks/start",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/breaks/start",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-check-in",
+      "name": "POST /api/v1/field/visits/:visitId/check-in",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/check-in",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-visits-visitid-correction-form",
+      "name": "GET /api/v1/field/visits/:visitId/correction-form",
+      "method": "GET",
+      "path": "/api/v1/field/visits/:visitId/correction-form",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-visits-visitid-correction-request",
+      "name": "GET /api/v1/field/visits/:visitId/correction-request",
+      "method": "GET",
+      "path": "/api/v1/field/visits/:visitId/correction-request",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-leave",
+      "name": "POST /api/v1/field/visits/:visitId/leave",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/leave",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-photos",
+      "name": "POST /api/v1/field/visits/:visitId/photos",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/photos",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-presence-segmentid-exit",
+      "name": "POST /api/v1/field/visits/:visitId/presence/:segmentId/exit",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/presence/:segmentId/exit",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-presence-enter",
+      "name": "POST /api/v1/field/visits/:visitId/presence/enter",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/presence/enter",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-report-corrections-correctionid-submit",
+      "name": "POST /api/v1/field/visits/:visitId/report-corrections/:correctionId/submit",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/report-corrections/:correctionId/submit",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-visits-visitid-report-template",
+      "name": "GET /api/v1/field/visits/:visitId/report-template",
+      "method": "GET",
+      "path": "/api/v1/field/visits/:visitId/report-template",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-field-visits-visitid-submit-report",
+      "name": "POST /api/v1/field/visits/:visitId/submit-report",
+      "method": "POST",
+      "path": "/api/v1/field/visits/:visitId/submit-report",
+      "auth": true,
+      "hasParam": true,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-field-visits-assigned",
+      "name": "GET /api/v1/field/visits/assigned",
+      "method": "GET",
+      "path": "/api/v1/field/visits/assigned",
+      "auth": true,
+      "hasParam": false,
+      "surface": "field",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-health",
+      "name": "GET /api/v1/health",
+      "method": "GET",
+      "path": "/api/v1/health",
+      "auth": false,
+      "hasParam": false,
+      "surface": "public",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-imports-account-setup",
+      "name": "POST /api/v1/imports/account-setup",
+      "method": "POST",
+      "path": "/api/v1/imports/account-setup",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-imports-customers",
+      "name": "POST /api/v1/imports/customers",
+      "method": "POST",
+      "path": "/api/v1/imports/customers",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-imports-foundation-setup",
+      "name": "POST /api/v1/imports/foundation-setup",
+      "method": "POST",
+      "path": "/api/v1/imports/foundation-setup",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-imports-geocode-addresses",
+      "name": "POST /api/v1/imports/geocode-addresses",
+      "method": "POST",
+      "path": "/api/v1/imports/geocode-addresses",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-imports-visits",
+      "name": "POST /api/v1/imports/visits",
+      "method": "POST",
+      "path": "/api/v1/imports/visits",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-connect",
+      "name": "GET /api/v1/integrations/hubspot/connect",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/connect",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-deals",
+      "name": "GET /api/v1/integrations/hubspot/deals",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/deals",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-deals-dealid",
+      "name": "GET /api/v1/integrations/hubspot/deals/:dealId",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/deals/:dealId",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-integrations-hubspot-disconnect",
+      "name": "POST /api/v1/integrations/hubspot/disconnect",
+      "method": "POST",
+      "path": "/api/v1/integrations/hubspot/disconnect",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-field-mappings",
+      "name": "GET /api/v1/integrations/hubspot/field-mappings",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/field-mappings",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "put-api-v1-integrations-hubspot-field-mappings",
+      "name": "PUT /api/v1/integrations/hubspot/field-mappings",
+      "method": "PUT",
+      "path": "/api/v1/integrations/hubspot/field-mappings",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-integrations-hubspot-import",
+      "name": "POST /api/v1/integrations/hubspot/import",
+      "method": "POST",
+      "path": "/api/v1/integrations/hubspot/import",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-import-logs",
+      "name": "GET /api/v1/integrations/hubspot/import-logs",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/import-logs",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-oauth-callback",
+      "name": "GET /api/v1/integrations/hubspot/oauth/callback",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/oauth/callback",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-pipelines",
+      "name": "GET /api/v1/integrations/hubspot/pipelines",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/pipelines",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-integrations-hubspot-poll-now",
+      "name": "POST /api/v1/integrations/hubspot/poll-now",
+      "method": "POST",
+      "path": "/api/v1/integrations/hubspot/poll-now",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-properties",
+      "name": "GET /api/v1/integrations/hubspot/properties",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/properties",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-service-mappings",
+      "name": "GET /api/v1/integrations/hubspot/service-mappings",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/service-mappings",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "put-api-v1-integrations-hubspot-service-mappings",
+      "name": "PUT /api/v1/integrations/hubspot/service-mappings",
+      "method": "PUT",
+      "path": "/api/v1/integrations/hubspot/service-mappings",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-status",
+      "name": "GET /api/v1/integrations/hubspot/status",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/status",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-integrations-hubspot-sync-config",
+      "name": "GET /api/v1/integrations/hubspot/sync-config",
+      "method": "GET",
+      "path": "/api/v1/integrations/hubspot/sync-config",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "put-api-v1-integrations-hubspot-sync-config",
+      "name": "PUT /api/v1/integrations/hubspot/sync-config",
+      "method": "PUT",
+      "path": "/api/v1/integrations/hubspot/sync-config",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-invoices",
+      "name": "GET /api/v1/invoices",
+      "method": "GET",
+      "path": "/api/v1/invoices",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-invoices",
+      "name": "POST /api/v1/invoices",
+      "method": "POST",
+      "path": "/api/v1/invoices",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-invoices-id",
+      "name": "GET /api/v1/invoices/:id",
+      "method": "GET",
+      "path": "/api/v1/invoices/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-invoices-id",
+      "name": "PATCH /api/v1/invoices/:id",
+      "method": "PATCH",
+      "path": "/api/v1/invoices/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-invoices-id-approve",
+      "name": "POST /api/v1/invoices/:id/approve",
+      "method": "POST",
+      "path": "/api/v1/invoices/:id/approve",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-invoices-id-mark-paid",
+      "name": "POST /api/v1/invoices/:id/mark-paid",
+      "method": "POST",
+      "path": "/api/v1/invoices/:id/mark-paid",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-invoices-id-resend",
+      "name": "POST /api/v1/invoices/:id/resend",
+      "method": "POST",
+      "path": "/api/v1/invoices/:id/resend",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-invoices-id-send",
+      "name": "POST /api/v1/invoices/:id/send",
+      "method": "POST",
+      "path": "/api/v1/invoices/:id/send",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-invoices-manual",
+      "name": "POST /api/v1/invoices/manual",
+      "method": "POST",
+      "path": "/api/v1/invoices/manual",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-invoices-stats",
+      "name": "GET /api/v1/invoices/stats",
+      "method": "GET",
+      "path": "/api/v1/invoices/stats",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-notifications-send",
+      "name": "POST /api/v1/notifications/send",
+      "method": "POST",
+      "path": "/api/v1/notifications/send",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-onboarding-skip",
+      "name": "POST /api/v1/onboarding/skip",
+      "method": "POST",
+      "path": "/api/v1/onboarding/skip",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-onboarding-steps-step",
+      "name": "PATCH /api/v1/onboarding/steps/:step",
+      "method": "PATCH",
+      "path": "/api/v1/onboarding/steps/:step",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-ai-apply",
+      "name": "POST /api/v1/planning/ai/apply",
+      "method": "POST",
+      "path": "/api/v1/planning/ai/apply",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-ai-apply-batch",
+      "name": "POST /api/v1/planning/ai/apply-batch",
+      "method": "POST",
+      "path": "/api/v1/planning/ai/apply-batch",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-planning-ai-assignment-reasons",
+      "name": "GET /api/v1/planning/ai/assignment-reasons",
+      "method": "GET",
+      "path": "/api/v1/planning/ai/assignment-reasons",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-planning-ai-clear-pending",
+      "name": "POST /api/v1/planning/ai/clear-pending",
+      "method": "POST",
+      "path": "/api/v1/planning/ai/clear-pending",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-ai-dismiss",
+      "name": "POST /api/v1/planning/ai/dismiss",
+      "method": "POST",
+      "path": "/api/v1/planning/ai/dismiss",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-ai-feedback",
+      "name": "POST /api/v1/planning/ai/feedback",
+      "method": "POST",
+      "path": "/api/v1/planning/ai/feedback",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-ai-optimize",
+      "name": "POST /api/v1/planning/ai/optimize",
+      "method": "POST",
+      "path": "/api/v1/planning/ai/optimize",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-ai-optimize-cancel",
+      "name": "POST /api/v1/planning/ai/optimize/cancel",
+      "method": "POST",
+      "path": "/api/v1/planning/ai/optimize/cancel",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-planning-ai-optimize-status",
+      "name": "GET /api/v1/planning/ai/optimize/status",
+      "method": "GET",
+      "path": "/api/v1/planning/ai/optimize/status",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-ai-or-tools-status",
+      "name": "GET /api/v1/planning/ai/or-tools/status",
+      "method": "GET",
+      "path": "/api/v1/planning/ai/or-tools/status",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-planning-ai-or-tools-wake",
+      "name": "POST /api/v1/planning/ai/or-tools/wake",
+      "method": "POST",
+      "path": "/api/v1/planning/ai/or-tools/wake",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-planning-ai-suggestions",
+      "name": "GET /api/v1/planning/ai/suggestions",
+      "method": "GET",
+      "path": "/api/v1/planning/ai/suggestions",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-cell",
+      "name": "GET /api/v1/planning/cell",
+      "method": "GET",
+      "path": "/api/v1/planning/cell",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-day",
+      "name": "GET /api/v1/planning/day",
+      "method": "GET",
+      "path": "/api/v1/planning/day",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-day-resources",
+      "name": "GET /api/v1/planning/day-resources",
+      "method": "GET",
+      "path": "/api/v1/planning/day-resources",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-employee-day",
+      "name": "GET /api/v1/planning/employee-day",
+      "method": "GET",
+      "path": "/api/v1/planning/employee-day",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-employee-visits",
+      "name": "GET /api/v1/planning/employee-visits",
+      "method": "GET",
+      "path": "/api/v1/planning/employee-visits",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-month",
+      "name": "GET /api/v1/planning/month",
+      "method": "GET",
+      "path": "/api/v1/planning/month",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-planning-move",
+      "name": "POST /api/v1/planning/move",
+      "method": "POST",
+      "path": "/api/v1/planning/move",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-planning-status",
+      "name": "POST /api/v1/planning/planning-status",
+      "method": "POST",
+      "path": "/api/v1/planning/planning-status",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-reorder",
+      "name": "POST /api/v1/planning/reorder",
+      "method": "POST",
+      "path": "/api/v1/planning/reorder",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-planning-resize",
+      "name": "POST /api/v1/planning/resize",
+      "method": "POST",
+      "path": "/api/v1/planning/resize",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-planning-route-map",
+      "name": "GET /api/v1/planning/route-map",
+      "method": "GET",
+      "path": "/api/v1/planning/route-map",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-visits",
+      "name": "GET /api/v1/planning/visits",
+      "method": "GET",
+      "path": "/api/v1/planning/visits",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-planning-week",
+      "name": "GET /api/v1/planning/week",
+      "method": "GET",
+      "path": "/api/v1/planning/week",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-platform-ai-routes",
+      "name": "GET /api/v1/platform/ai-routes",
+      "method": "GET",
+      "path": "/api/v1/platform/ai-routes",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-ai-routes-detail",
+      "name": "GET /api/v1/platform/ai-routes/detail",
+      "method": "GET",
+      "path": "/api/v1/platform/ai-routes/detail",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-ai-suggestions",
+      "name": "GET /api/v1/platform/ai-suggestions",
+      "method": "GET",
+      "path": "/api/v1/platform/ai-suggestions",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-ai-suggestions-by-user",
+      "name": "GET /api/v1/platform/ai-suggestions/by-user",
+      "method": "GET",
+      "path": "/api/v1/platform/ai-suggestions/by-user",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-ai-suggestions-summary",
+      "name": "GET /api/v1/platform/ai-suggestions/summary",
+      "method": "GET",
+      "path": "/api/v1/platform/ai-suggestions/summary",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-ai-suggestions-timeseries",
+      "name": "GET /api/v1/platform/ai-suggestions/timeseries",
+      "method": "GET",
+      "path": "/api/v1/platform/ai-suggestions/timeseries",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-platform-auth-login",
+      "name": "POST /api/v1/platform/auth/login",
+      "method": "POST",
+      "path": "/api/v1/platform/auth/login",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-platform-auth-logout",
+      "name": "POST /api/v1/platform/auth/logout",
+      "method": "POST",
+      "path": "/api/v1/platform/auth/logout",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-auth-me",
+      "name": "GET /api/v1/platform/auth/me",
+      "method": "GET",
+      "path": "/api/v1/platform/auth/me",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-platform-auth-refresh",
+      "name": "POST /api/v1/platform/auth/refresh",
+      "method": "POST",
+      "path": "/api/v1/platform/auth/refresh",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-health-overview",
+      "name": "GET /api/v1/platform/health/overview",
+      "method": "GET",
+      "path": "/api/v1/platform/health/overview",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-tenants",
+      "name": "GET /api/v1/platform/tenants",
+      "method": "GET",
+      "path": "/api/v1/platform/tenants",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-tenants-id",
+      "name": "GET /api/v1/platform/tenants/:id",
+      "method": "GET",
+      "path": "/api/v1/platform/tenants/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-platform-tenants-id-status",
+      "name": "PATCH /api/v1/platform/tenants/:id/status",
+      "method": "PATCH",
+      "path": "/api/v1/platform/tenants/:id/status",
+      "auth": true,
+      "hasParam": true,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-tenants-tenantid-customers",
+      "name": "GET /api/v1/platform/tenants/:tenantId/customers",
+      "method": "GET",
+      "path": "/api/v1/platform/tenants/:tenantId/customers",
+      "auth": true,
+      "hasParam": true,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-tenants-tenantid-employees",
+      "name": "GET /api/v1/platform/tenants/:tenantId/employees",
+      "method": "GET",
+      "path": "/api/v1/platform/tenants/:tenantId/employees",
+      "auth": true,
+      "hasParam": true,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-tenants-tenantid-visits",
+      "name": "GET /api/v1/platform/tenants/:tenantId/visits",
+      "method": "GET",
+      "path": "/api/v1/platform/tenants/:tenantId/visits",
+      "auth": true,
+      "hasParam": true,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-platform-tenants-reset-account",
+      "name": "POST /api/v1/platform/tenants/reset-account",
+      "method": "POST",
+      "path": "/api/v1/platform/tenants/reset-account",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-tenants-reset-account-lookup",
+      "name": "GET /api/v1/platform/tenants/reset-account/lookup",
+      "method": "GET",
+      "path": "/api/v1/platform/tenants/reset-account/lookup",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-usage-logs",
+      "name": "GET /api/v1/platform/usage-logs",
+      "method": "GET",
+      "path": "/api/v1/platform/usage-logs",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-usage-logs-runid-calls",
+      "name": "GET /api/v1/platform/usage-logs/:runId/calls",
+      "method": "GET",
+      "path": "/api/v1/platform/usage-logs/:runId/calls",
+      "auth": true,
+      "hasParam": true,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-usage-logs-summary",
+      "name": "GET /api/v1/platform/usage-logs/summary",
+      "method": "GET",
+      "path": "/api/v1/platform/usage-logs/summary",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-platform-usage-logs-timeseries",
+      "name": "GET /api/v1/platform/usage-logs/timeseries",
+      "method": "GET",
+      "path": "/api/v1/platform/usage-logs/timeseries",
+      "auth": true,
+      "hasParam": false,
+      "surface": "platform",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-properties",
+      "name": "GET /api/v1/properties",
+      "method": "GET",
+      "path": "/api/v1/properties",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-properties",
+      "name": "POST /api/v1/properties",
+      "method": "POST",
+      "path": "/api/v1/properties",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-properties-id",
+      "name": "DELETE /api/v1/properties/:id",
+      "method": "DELETE",
+      "path": "/api/v1/properties/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-properties-id",
+      "name": "GET /api/v1/properties/:id",
+      "method": "GET",
+      "path": "/api/v1/properties/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-properties-id",
+      "name": "PATCH /api/v1/properties/:id",
+      "method": "PATCH",
+      "path": "/api/v1/properties/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-properties-id-customers",
+      "name": "GET /api/v1/properties/:id/customers",
+      "method": "GET",
+      "path": "/api/v1/properties/:id/customers",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-properties-id-visits",
+      "name": "GET /api/v1/properties/:id/visits",
+      "method": "GET",
+      "path": "/api/v1/properties/:id/visits",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-properties-bulk",
+      "name": "POST /api/v1/properties/bulk",
+      "method": "POST",
+      "path": "/api/v1/properties/bulk",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-public-invoices-id-preview",
+      "name": "GET /api/v1/public/invoices/:id/preview",
+      "method": "GET",
+      "path": "/api/v1/public/invoices/:id/preview",
+      "auth": false,
+      "hasParam": true,
+      "surface": "public",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-public-quotes-id-pdf",
+      "name": "GET /api/v1/public/quotes/:id/pdf",
+      "method": "GET",
+      "path": "/api/v1/public/quotes/:id/pdf",
+      "auth": false,
+      "hasParam": true,
+      "surface": "public",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-public-quotes-id-preview",
+      "name": "GET /api/v1/public/quotes/:id/preview",
+      "method": "GET",
+      "path": "/api/v1/public/quotes/:id/preview",
+      "auth": false,
+      "hasParam": true,
+      "surface": "public",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-public-visits-id-report-pdf",
+      "name": "GET /api/v1/public/visits/:id/report-pdf",
+      "method": "GET",
+      "path": "/api/v1/public/visits/:id/report-pdf",
+      "auth": false,
+      "hasParam": true,
+      "surface": "public",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-quotes",
+      "name": "GET /api/v1/quotes",
+      "method": "GET",
+      "path": "/api/v1/quotes",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-quotes",
+      "name": "POST /api/v1/quotes",
+      "method": "POST",
+      "path": "/api/v1/quotes",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-quotes-id",
+      "name": "GET /api/v1/quotes/:id",
+      "method": "GET",
+      "path": "/api/v1/quotes/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-quotes-id",
+      "name": "PATCH /api/v1/quotes/:id",
+      "method": "PATCH",
+      "path": "/api/v1/quotes/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-quotes-id-accept",
+      "name": "POST /api/v1/quotes/:id/accept",
+      "method": "POST",
+      "path": "/api/v1/quotes/:id/accept",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-quotes-id-archive",
+      "name": "POST /api/v1/quotes/:id/archive",
+      "method": "POST",
+      "path": "/api/v1/quotes/:id/archive",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-quotes-id-decline",
+      "name": "POST /api/v1/quotes/:id/decline",
+      "method": "POST",
+      "path": "/api/v1/quotes/:id/decline",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-quotes-id-preview",
+      "name": "GET /api/v1/quotes/:id/preview",
+      "method": "GET",
+      "path": "/api/v1/quotes/:id/preview",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-quotes-id-resend",
+      "name": "POST /api/v1/quotes/:id/resend",
+      "method": "POST",
+      "path": "/api/v1/quotes/:id/resend",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-quotes-id-send",
+      "name": "POST /api/v1/quotes/:id/send",
+      "method": "POST",
+      "path": "/api/v1/quotes/:id/send",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-quotes-id-unarchive",
+      "name": "POST /api/v1/quotes/:id/unarchive",
+      "method": "POST",
+      "path": "/api/v1/quotes/:id/unarchive",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-quotes-export",
+      "name": "GET /api/v1/quotes/export",
+      "method": "GET",
+      "path": "/api/v1/quotes/export",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-settings-accounting-integration",
+      "name": "GET /api/v1/settings/accounting-integration",
+      "method": "GET",
+      "path": "/api/v1/settings/accounting-integration",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-settings-accounting-integration-connect",
+      "name": "POST /api/v1/settings/accounting-integration/connect",
+      "method": "POST",
+      "path": "/api/v1/settings/accounting-integration/connect",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-settings-accounting-integration-disconnect",
+      "name": "POST /api/v1/settings/accounting-integration/disconnect",
+      "method": "POST",
+      "path": "/api/v1/settings/accounting-integration/disconnect",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-settings-accounting-integration-test",
+      "name": "POST /api/v1/settings/accounting-integration/test",
+      "method": "POST",
+      "path": "/api/v1/settings/accounting-integration/test",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-settings-branding",
+      "name": "GET /api/v1/settings/branding",
+      "method": "GET",
+      "path": "/api/v1/settings/branding",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "patch-api-v1-settings-branding",
+      "name": "PATCH /api/v1/settings/branding",
+      "method": "PATCH",
+      "path": "/api/v1/settings/branding",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-settings-company",
+      "name": "GET /api/v1/settings/company",
+      "method": "GET",
+      "path": "/api/v1/settings/company",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "patch-api-v1-settings-company",
+      "name": "PATCH /api/v1/settings/company",
+      "method": "PATCH",
+      "path": "/api/v1/settings/company",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-settings-profile",
+      "name": "GET /api/v1/settings/profile",
+      "method": "GET",
+      "path": "/api/v1/settings/profile",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "patch-api-v1-settings-profile",
+      "name": "PATCH /api/v1/settings/profile",
+      "method": "PATCH",
+      "path": "/api/v1/settings/profile",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-settings-profile-photo",
+      "name": "PATCH /api/v1/settings/profile/photo",
+      "method": "PATCH",
+      "path": "/api/v1/settings/profile/photo",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-settings-report-templates",
+      "name": "GET /api/v1/settings/report-templates",
+      "method": "GET",
+      "path": "/api/v1/settings/report-templates",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-settings-report-templates",
+      "name": "POST /api/v1/settings/report-templates",
+      "method": "POST",
+      "path": "/api/v1/settings/report-templates",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-settings-report-templates-id",
+      "name": "GET /api/v1/settings/report-templates/:id",
+      "method": "GET",
+      "path": "/api/v1/settings/report-templates/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-settings-report-templates-id",
+      "name": "PATCH /api/v1/settings/report-templates/:id",
+      "method": "PATCH",
+      "path": "/api/v1/settings/report-templates/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-settings-report-templates-id-status",
+      "name": "PATCH /api/v1/settings/report-templates/:id/status",
+      "method": "PATCH",
+      "path": "/api/v1/settings/report-templates/:id/status",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-settings-report-templates-all",
+      "name": "GET /api/v1/settings/report-templates/all",
+      "method": "GET",
+      "path": "/api/v1/settings/report-templates/all",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-settings-report-templates-options",
+      "name": "GET /api/v1/settings/report-templates/options",
+      "method": "GET",
+      "path": "/api/v1/settings/report-templates/options",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-settings-service-types",
+      "name": "GET /api/v1/settings/service-types",
+      "method": "GET",
+      "path": "/api/v1/settings/service-types",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-settings-service-types",
+      "name": "POST /api/v1/settings/service-types",
+      "method": "POST",
+      "path": "/api/v1/settings/service-types",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "delete-api-v1-settings-service-types-id",
+      "name": "DELETE /api/v1/settings/service-types/:id",
+      "method": "DELETE",
+      "path": "/api/v1/settings/service-types/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-settings-service-types-id",
+      "name": "PATCH /api/v1/settings/service-types/:id",
+      "method": "PATCH",
+      "path": "/api/v1/settings/service-types/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-settings-service-types-id-reactivate",
+      "name": "PATCH /api/v1/settings/service-types/:id/reactivate",
+      "method": "PATCH",
+      "path": "/api/v1/settings/service-types/:id/reactivate",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-settings-service-types-all",
+      "name": "GET /api/v1/settings/service-types/all",
+      "method": "GET",
+      "path": "/api/v1/settings/service-types/all",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-settings-service-types-bulk",
+      "name": "POST /api/v1/settings/service-types/bulk",
+      "method": "POST",
+      "path": "/api/v1/settings/service-types/bulk",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-subscriptions",
+      "name": "GET /api/v1/subscriptions",
+      "method": "GET",
+      "path": "/api/v1/subscriptions",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "get-api-v1-subscriptions-id",
+      "name": "GET /api/v1/subscriptions/:id",
+      "method": "GET",
+      "path": "/api/v1/subscriptions/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-subscriptions-id",
+      "name": "PATCH /api/v1/subscriptions/:id",
+      "method": "PATCH",
+      "path": "/api/v1/subscriptions/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-uploads-cloudinary-signature",
+      "name": "GET /api/v1/uploads/cloudinary/signature",
+      "method": "GET",
+      "path": "/api/v1/uploads/cloudinary/signature",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "delete-api-v1-users-id",
+      "name": "DELETE /api/v1/users/:id",
+      "method": "DELETE",
+      "path": "/api/v1/users/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-users-id",
+      "name": "PATCH /api/v1/users/:id",
+      "method": "PATCH",
+      "path": "/api/v1/users/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits",
+      "name": "GET /api/v1/visits",
+      "method": "GET",
+      "path": "/api/v1/visits",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "delete-api-v1-visits-id",
+      "name": "DELETE /api/v1/visits/:id",
+      "method": "DELETE",
+      "path": "/api/v1/visits/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-id",
+      "name": "GET /api/v1/visits/:id",
+      "method": "GET",
+      "path": "/api/v1/visits/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-id-approve-review",
+      "name": "POST /api/v1/visits/:id/approve-review",
+      "method": "POST",
+      "path": "/api/v1/visits/:id/approve-review",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-id-assign-employee",
+      "name": "POST /api/v1/visits/:id/assign-employee",
+      "method": "POST",
+      "path": "/api/v1/visits/:id/assign-employee",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-id-assignable-employees",
+      "name": "GET /api/v1/visits/:id/assignable-employees",
+      "method": "GET",
+      "path": "/api/v1/visits/:id/assignable-employees",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-id-board-move",
+      "name": "POST /api/v1/visits/:id/board-move",
+      "method": "POST",
+      "path": "/api/v1/visits/:id/board-move",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-id-cancel",
+      "name": "POST /api/v1/visits/:id/cancel",
+      "method": "POST",
+      "path": "/api/v1/visits/:id/cancel",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-id-logs",
+      "name": "GET /api/v1/visits/:id/logs",
+      "method": "GET",
+      "path": "/api/v1/visits/:id/logs",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-id-move",
+      "name": "POST /api/v1/visits/:id/move",
+      "method": "POST",
+      "path": "/api/v1/visits/:id/move",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-visits-id-planner",
+      "name": "PATCH /api/v1/visits/:id/planner",
+      "method": "PATCH",
+      "path": "/api/v1/visits/:id/planner",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-visits-id-priority",
+      "name": "PATCH /api/v1/visits/:id/priority",
+      "method": "PATCH",
+      "path": "/api/v1/visits/:id/priority",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-id-report-corrections",
+      "name": "POST /api/v1/visits/:id/report-corrections",
+      "method": "POST",
+      "path": "/api/v1/visits/:id/report-corrections",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-id-report-corrections-correctionid-cancel",
+      "name": "POST /api/v1/visits/:id/report-corrections/:correctionId/cancel",
+      "method": "POST",
+      "path": "/api/v1/visits/:id/report-corrections/:correctionId/cancel",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-id-report-pdf",
+      "name": "GET /api/v1/visits/:id/report-pdf",
+      "method": "GET",
+      "path": "/api/v1/visits/:id/report-pdf",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "patch-api-v1-visits-id-report-responses",
+      "name": "PATCH /api/v1/visits/:id/report-responses",
+      "method": "PATCH",
+      "path": "/api/v1/visits/:id/report-responses",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-id-unplan",
+      "name": "POST /api/v1/visits/:id/unplan",
+      "method": "POST",
+      "path": "/api/v1/visits/:id/unplan",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-board",
+      "name": "GET /api/v1/visits/board",
+      "method": "GET",
+      "path": "/api/v1/visits/board",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-visits-board-reorder",
+      "name": "POST /api/v1/visits/board/reorder",
+      "method": "POST",
+      "path": "/api/v1/visits/board/reorder",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-bulk-move",
+      "name": "POST /api/v1/visits/bulk/move",
+      "method": "POST",
+      "path": "/api/v1/visits/bulk/move",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-me-id",
+      "name": "GET /api/v1/visits/me/:id",
+      "method": "GET",
+      "path": "/api/v1/visits/me/:id",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-me-id-breaks-breakid-end",
+      "name": "POST /api/v1/visits/me/:id/breaks/:breakId/end",
+      "method": "POST",
+      "path": "/api/v1/visits/me/:id/breaks/:breakId/end",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-me-id-breaks-start",
+      "name": "POST /api/v1/visits/me/:id/breaks/start",
+      "method": "POST",
+      "path": "/api/v1/visits/me/:id/breaks/start",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-me-id-check-in",
+      "name": "POST /api/v1/visits/me/:id/check-in",
+      "method": "POST",
+      "path": "/api/v1/visits/me/:id/check-in",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-me-id-check-out",
+      "name": "POST /api/v1/visits/me/:id/check-out",
+      "method": "POST",
+      "path": "/api/v1/visits/me/:id/check-out",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-me-id-complete",
+      "name": "POST /api/v1/visits/me/:id/complete",
+      "method": "POST",
+      "path": "/api/v1/visits/me/:id/complete",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-me-id-logs",
+      "name": "GET /api/v1/visits/me/:id/logs",
+      "method": "GET",
+      "path": "/api/v1/visits/me/:id/logs",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-me-id-photos",
+      "name": "POST /api/v1/visits/me/:id/photos",
+      "method": "POST",
+      "path": "/api/v1/visits/me/:id/photos",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-me-id-start",
+      "name": "POST /api/v1/visits/me/:id/start",
+      "method": "POST",
+      "path": "/api/v1/visits/me/:id/start",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-review",
+      "name": "GET /api/v1/visits/review",
+      "method": "GET",
+      "path": "/api/v1/visits/review",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    },
+    {
+      "id": "post-api-v1-visits-review-id-reject",
+      "name": "POST /api/v1/visits/review/:id/reject",
+      "method": "POST",
+      "path": "/api/v1/visits/review/:id/reject",
+      "auth": true,
+      "hasParam": true,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-review-approve",
+      "name": "POST /api/v1/visits/review/approve",
+      "method": "POST",
+      "path": "/api/v1/visits/review/approve",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "post-api-v1-visits-review-approve-all",
+      "name": "POST /api/v1/visits/review/approve-all",
+      "method": "POST",
+      "path": "/api/v1/visits/review/approve-all",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": false
+    },
+    {
+      "id": "get-api-v1-visits-review-summary",
+      "name": "GET /api/v1/visits/review/summary",
+      "method": "GET",
+      "path": "/api/v1/visits/review/summary",
+      "auth": true,
+      "hasParam": false,
+      "surface": "tenant",
+      "smoke": true
+    }
+  ]
+}
