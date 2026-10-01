@@ -4,6 +4,7 @@ import type {
   CheckRun,
   CheckRunSummary,
   PageCheckResult,
+  SecurityCheckResult,
 } from "./types";
 
 function sql() {
@@ -20,8 +21,13 @@ export async function ensureSchema(): Promise<void> {
       checked_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
       summary JSONB NOT NULL,
       api_results JSONB NOT NULL,
-      page_results JSONB NOT NULL
+      page_results JSONB NOT NULL,
+      security_results JSONB NOT NULL DEFAULT '[]'::jsonb
     )
+  `;
+  await db`
+    ALTER TABLE check_runs
+    ADD COLUMN IF NOT EXISTS security_results JSONB NOT NULL DEFAULT '[]'::jsonb
   `;
   await db`
     CREATE TABLE IF NOT EXISTS monitor_session (
@@ -38,17 +44,19 @@ export async function saveRun(input: {
   summary: CheckRunSummary;
   apiResults: ApiCheckResult[];
   pageResults: PageCheckResult[];
+  securityResults: SecurityCheckResult[];
 }): Promise<CheckRun> {
   await ensureSchema();
   const db = sql();
   const rows = await db`
-    INSERT INTO check_runs (summary, api_results, page_results)
+    INSERT INTO check_runs (summary, api_results, page_results, security_results)
     VALUES (
       ${JSON.stringify(input.summary)}::jsonb,
       ${JSON.stringify(input.apiResults)}::jsonb,
-      ${JSON.stringify(input.pageResults)}::jsonb
+      ${JSON.stringify(input.pageResults)}::jsonb,
+      ${JSON.stringify(input.securityResults)}::jsonb
     )
-    RETURNING id, checked_at, summary, api_results, page_results
+    RETURNING id, checked_at, summary, api_results, page_results, security_results
   `;
   const row = rows[0];
   return mapRow(row);
@@ -58,7 +66,7 @@ export async function getLatestRun(): Promise<CheckRun | null> {
   await ensureSchema();
   const db = sql();
   const rows = await db`
-    SELECT id, checked_at, summary, api_results, page_results
+    SELECT id, checked_at, summary, api_results, page_results, security_results
     FROM check_runs
     ORDER BY checked_at DESC
     LIMIT 1
@@ -139,14 +147,23 @@ export async function clearMonitorSession(): Promise<void> {
 }
 
 function mapRow(row: Record<string, unknown>): CheckRun {
+  const summary = row.summary as CheckRunSummary;
   return {
     id: Number(row.id),
     checkedAt:
       row.checked_at instanceof Date
         ? row.checked_at.toISOString()
         : String(row.checked_at),
-    summary: row.summary as CheckRunSummary,
+    summary: {
+      apiOk: summary.apiOk ?? 0,
+      apiFail: summary.apiFail ?? 0,
+      pageOk: summary.pageOk ?? 0,
+      pageFail: summary.pageFail ?? 0,
+      securityOk: summary.securityOk ?? 0,
+      securityFail: summary.securityFail ?? 0,
+    },
     apiResults: row.api_results as ApiCheckResult[],
     pageResults: row.page_results as PageCheckResult[],
+    securityResults: (row.security_results as SecurityCheckResult[]) ?? [],
   };
 }

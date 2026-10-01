@@ -5,12 +5,19 @@ import type {
   ApiCheckResult,
   CheckRun,
   PageCheckResult,
+  SecurityCheckResult,
+  SecurityFinding,
   StrategyScores,
 } from "@/lib/types";
 
 const PASSWORD_KEY = "hm_dashboard_password";
 
 type ApiFilter = "all" | "ok" | "fail";
+type MainTab = "apis" | "pages" | "security" | "inventory";
+
+function Spinner() {
+  return <span className="hm-spinner" aria-hidden />;
+}
 
 function ScorePill({ value }: { value: number | null }) {
   if (value == null) return <span className="text-muted">—</span>;
@@ -22,7 +29,9 @@ function ScorePill({ value }: { value: number | null }) {
 function LcpCell({ ms }: { ms: number | null }) {
   const bad = ms != null && ms >= 2500;
   return (
-    <span className={`font-mono text-xs tabular-nums ${bad ? "text-fail" : "text-muted"}`}>
+    <span
+      className={`font-mono text-xs tabular-nums ${bad ? "text-fail" : "text-muted"}`}
+    >
       {ms == null ? "—" : `${(ms / 1000).toFixed(1)}s`}
     </span>
   );
@@ -31,19 +40,35 @@ function LcpCell({ ms }: { ms: number | null }) {
 function StrategyCells({ s }: { s: StrategyScores }) {
   if (s.error) {
     return (
-      <td colSpan={6} className="max-w-[14rem] truncate text-xs text-fail" title={s.error}>
+      <td
+        colSpan={6}
+        className="max-w-[14rem] truncate text-xs text-fail"
+        title={s.error}
+      >
         {s.error}
       </td>
     );
   }
   return (
     <>
-      <td><ScorePill value={s.performance} /></td>
-      <td><ScorePill value={s.accessibility} /></td>
-      <td><ScorePill value={s.bestPractices} /></td>
-      <td><ScorePill value={s.seo} /></td>
-      <td><LcpCell ms={s.lcpMs} /></td>
-      <td className="font-mono text-xs tabular-nums text-muted">{s.cls ?? "—"}</td>
+      <td>
+        <ScorePill value={s.performance} />
+      </td>
+      <td>
+        <ScorePill value={s.accessibility} />
+      </td>
+      <td>
+        <ScorePill value={s.bestPractices} />
+      </td>
+      <td>
+        <ScorePill value={s.seo} />
+      </td>
+      <td>
+        <LcpCell ms={s.lcpMs} />
+      </td>
+      <td className="font-mono text-xs tabular-nums text-muted">
+        {s.cls ?? "—"}
+      </td>
     </>
   );
 }
@@ -62,26 +87,8 @@ function formatWhen(iso: string | null | undefined) {
   }
 }
 
-function SectionTitle({
-  title,
-  meta,
-  actions,
-}: {
-  title: string;
-  meta?: React.ReactNode;
-  actions?: React.ReactNode;
-}) {
-  return (
-    <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
-      <div>
-        <h2 className="text-xs font-medium uppercase tracking-[0.08em] text-muted">
-          {title}
-        </h2>
-        {meta ? <div className="mt-1 text-sm text-muted">{meta}</div> : null}
-      </div>
-      {actions}
-    </div>
-  );
+function ratioTone(fail: number) {
+  return fail > 0 ? "text-fail" : "text-ok";
 }
 
 export function Dashboard() {
@@ -93,10 +100,13 @@ export function Dashboard() {
   const [error, setError] = useState<string | null>(null);
   const [needsPassword, setNeedsPassword] = useState(false);
   const [foundationEmail, setFoundationEmail] = useState<string | null>(null);
-  const [foundationUpdatedAt, setFoundationUpdatedAt] = useState<string | null>(null);
+  const [foundationUpdatedAt, setFoundationUpdatedAt] = useState<string | null>(
+    null,
+  );
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [connecting, setConnecting] = useState(false);
+  const [unlocking, setUnlocking] = useState(false);
   const [sessionReady, setSessionReady] = useState(false);
   const [inventoryStats, setInventoryStats] = useState<{
     total: number;
@@ -104,7 +114,6 @@ export function Dashboard() {
     byMethod: Record<string, number>;
     generatedAt: string;
   } | null>(null);
-  const [showInventory, setShowInventory] = useState(false);
   const [inventoryRoutes, setInventoryRoutes] = useState<
     {
       method: string;
@@ -116,6 +125,7 @@ export function Dashboard() {
   >([]);
   const [apiFilter, setApiFilter] = useState<ApiFilter>("all");
   const [apiQuery, setApiQuery] = useState("");
+  const [tab, setTab] = useState<MainTab>("apis");
 
   const headers = useCallback((): HeadersInit => {
     const h: Record<string, string> = {};
@@ -221,7 +231,9 @@ export function Dashboard() {
           return;
         }
         if (!res.ok) {
-          const body = (await res.json().catch(() => ({}))) as { error?: string };
+          const body = (await res.json().catch(() => ({}))) as {
+            error?: string;
+          };
           throw new Error(body.error ?? `HTTP ${res.status}`);
         }
         const body = (await res.json()) as { run: CheckRun | null };
@@ -240,7 +252,12 @@ export function Dashboard() {
 
   async function onUnlock(e: React.FormEvent) {
     e.preventDefault();
-    await load();
+    setUnlocking(true);
+    try {
+      await load();
+    } finally {
+      setUnlocking(false);
+    }
   }
 
   async function onConnect(e: React.FormEvent) {
@@ -330,20 +347,19 @@ export function Dashboard() {
   const apiFail = run?.summary?.apiFail ?? 0;
   const pageOk = run?.summary?.pageOk ?? 0;
   const pageFail = run?.summary?.pageFail ?? 0;
+  const securityOk = run?.summary?.securityOk ?? 0;
+  const securityFail = run?.summary?.securityFail ?? 0;
 
   if (needsPassword && !unlocked) {
     return (
-      <div className="flex min-h-full flex-1 items-center justify-center px-6 py-16">
-        <form
-          onSubmit={onUnlock}
-          className="w-full max-w-sm space-y-5 border border-border bg-surface p-6"
-        >
+      <div className="hm-auth-shell">
+        <form onSubmit={onUnlock} className="hm-auth-card space-y-5">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.08em] text-muted">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
               Health Monitor
             </p>
-            <h1 className="mt-2 text-xl font-semibold tracking-tight">Unlock</h1>
-            <p className="mt-1 text-sm text-muted">
+            <h1 className="mt-2 text-2xl font-semibold tracking-tight">Unlock</h1>
+            <p className="mt-1.5 text-sm text-muted">
               Enter the dashboard password to continue.
             </p>
           </div>
@@ -355,8 +371,18 @@ export function Dashboard() {
             placeholder="Password"
             autoFocus
           />
-          <button type="submit" className="hm-btn hm-btn-primary w-full">
-            Continue
+          <button
+            type="submit"
+            disabled={unlocking}
+            className="hm-btn hm-btn-primary w-full"
+          >
+            {unlocking ? (
+              <>
+                <Spinner /> Unlocking…
+              </>
+            ) : (
+              "Continue"
+            )}
           </button>
           {error && <p className="text-sm text-fail">{error}</p>}
         </form>
@@ -364,35 +390,37 @@ export function Dashboard() {
     );
   }
 
-  // Foundation CRM login is required before the monitor UI
   if (!sessionReady || loading) {
     return (
-      <div className="flex min-h-full flex-1 items-center justify-center px-6 py-16">
-        <p className="text-sm text-muted">Loading…</p>
+      <div className="hm-auth-shell">
+        <div className="flex items-center gap-3 text-sm text-muted">
+          <Spinner />
+          Loading monitor…
+        </div>
       </div>
     );
   }
 
   if (!foundationEmail) {
     return (
-      <div className="flex min-h-full flex-1 items-center justify-center px-6 py-16">
+      <div className="hm-auth-shell">
         <form
           onSubmit={(e) => void onConnect(e)}
-          className="w-full max-w-sm space-y-5 border border-border bg-surface p-6"
+          className="hm-auth-card space-y-5"
         >
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.08em] text-muted">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
               Health Monitor
             </p>
-            <h1 className="mt-2 text-xl font-semibold tracking-tight">
+            <h1 className="mt-2 text-2xl font-semibold tracking-tight">
               Sign in to Foundation
             </h1>
-            <p className="mt-1 text-sm text-muted">
-              Use an owner/manager account. Password is not stored — only session
-              tokens.
+            <p className="mt-1.5 text-sm text-muted">
+              Owner/manager account required. Password is not stored — only
+              session tokens.
             </p>
           </div>
-          <label className="block space-y-1 text-xs text-muted">
+          <label className="block space-y-1.5 text-xs font-medium text-muted">
             Email
             <input
               type="email"
@@ -403,7 +431,7 @@ export function Dashboard() {
               autoFocus
             />
           </label>
-          <label className="block space-y-1 text-xs text-muted">
+          <label className="block space-y-1.5 text-xs font-medium text-muted">
             Password
             <input
               type="password"
@@ -418,7 +446,13 @@ export function Dashboard() {
             disabled={connecting}
             className="hm-btn hm-btn-primary w-full"
           >
-            {connecting ? "Signing in…" : "Sign in"}
+            {connecting ? (
+              <>
+                <Spinner /> Signing in…
+              </>
+            ) : (
+              "Sign in"
+            )}
           </button>
           {error && <p className="text-sm text-fail">{error}</p>}
         </form>
@@ -426,185 +460,191 @@ export function Dashboard() {
     );
   }
 
+  const tabs: { id: MainTab; label: string; tone: string }[] = [
+    { id: "apis", label: "API smoke", tone: "text-api" },
+    { id: "pages", label: "PageSpeed", tone: "text-pages" },
+    { id: "security", label: "Security", tone: "text-security" },
+    { id: "inventory", label: "Inventory", tone: "text-muted" },
+  ];
+
   return (
     <div className="flex min-h-full flex-col">
-      <header className="sticky top-0 z-20 border-b border-border bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-3.5 sm:px-6">
+      <header className="sticky top-0 z-20 border-b border-border bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-6">
           <div className="min-w-0">
-            <div className="flex items-center gap-2.5">
-              <h1 className="text-base font-semibold tracking-tight sm:text-lg">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <h1 className="text-lg font-semibold tracking-tight sm:text-xl">
                 Health Monitor
               </h1>
               <span className="hm-badge hm-badge-muted">Foundation</span>
             </div>
-            <p className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted">
-              <span>
-                Last run{" "}
-                <span className="text-foreground">{formatWhen(run?.checkedAt)}</span>
-              </span>
-              {run && (
-                <>
-                  <span className="text-border-strong">|</span>
-                  <span>
-                    APIs{" "}
-                    <span className={apiFail ? "text-fail" : "text-ok"}>
-                      {apiOk}/{apiTotal}
-                    </span>
-                  </span>
-                  <span>
-                    Pages{" "}
-                    <span className={pageFail ? "text-fail" : "text-ok"}>
-                      {pageOk}/{pageOk + pageFail}
-                    </span>
-                  </span>
-                </>
-              )}
+            <p className="mt-1 font-mono text-xs text-muted">
+              Last run{" "}
+              <span className="text-foreground">{formatWhen(run?.checkedAt)}</span>
             </p>
           </div>
           <button
             type="button"
             onClick={() => void onRun()}
             disabled={running || loading}
-            className="hm-btn hm-btn-primary min-w-[7.5rem]"
+            className="hm-btn hm-btn-primary min-w-[9rem]"
           >
-            {running ? "Running…" : "Run now"}
+            {running ? (
+              <>
+                <Spinner /> Running…
+              </>
+            ) : (
+              "Run now"
+            )}
           </button>
         </div>
         {running && (
-          <div className="h-0.5 w-full overflow-hidden bg-border">
-            <div className="h-full w-1/3 animate-pulse bg-accent" />
+          <div className="hm-progress">
+            <span />
           </div>
         )}
       </header>
 
-      <main className="mx-auto w-full max-w-7xl flex-1 space-y-8 px-5 py-6 sm:px-6 sm:py-8">
-        {/* Status + connect — one strip */}
-        <section className="grid gap-4 border border-border bg-surface p-4 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-6 sm:p-5">
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center gap-3 text-sm">
+      <main className="mx-auto w-full max-w-7xl flex-1 space-y-6 px-5 py-6 sm:px-6 sm:py-8">
+        {/* Overview */}
+        <section className="space-y-3">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.1em] text-muted">
+                Overview
+              </h2>
+              <p className="mt-1 text-sm text-muted">
+                Latest check summary across APIs, pages, and security.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 text-sm">
               <span className="hm-dot hm-dot-ok" />
               <span>
-                Connected as{" "}
-                <span className="font-medium text-foreground">{foundationEmail}</span>
-                <span className="ml-2 font-mono text-xs text-muted">
-                  {formatWhen(foundationUpdatedAt)}
-                </span>
+                <span className="text-muted">Signed in as </span>
+                <span className="font-medium">{foundationEmail}</span>
               </span>
-            </div>
-
-            {inventoryStats && (
-              <p className="font-mono text-xs text-muted">
-                Inventory{" "}
-                <span className="text-foreground">{inventoryStats.total}</span> routes ·
-                smoke{" "}
-                <span className="text-foreground">{inventoryStats.smokeCount}</span> GET
-                {Object.entries(inventoryStats.byMethod).length > 0 && (
+              <button
+                type="button"
+                onClick={() => void onDisconnect()}
+                disabled={connecting}
+                className="hm-btn hm-btn-ghost ml-1"
+              >
+                {connecting ? (
                   <>
-                    {" "}
-                    ·{" "}
-                    {Object.entries(inventoryStats.byMethod)
-                      .map(([m, n]) => `${m} ${n}`)
-                      .join(" · ")}
+                    <Spinner /> Signing out…
                   </>
+                ) : (
+                  "Sign out"
                 )}
-              </p>
-            )}
+              </button>
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 sm:justify-end">
+          <div className="grid gap-3 sm:grid-cols-3">
             <button
               type="button"
-              onClick={() => void onDisconnect()}
-              disabled={connecting}
-              className="hm-btn hm-btn-ghost"
+              onClick={() => setTab("apis")}
+              className={`hm-stat text-left transition ${tab === "apis" ? "ring-1 ring-api/40" : ""}`}
             >
-              Sign out
+              <div className="hm-stat-label text-api">API smoke</div>
+              <div className={`hm-stat-value ${ratioTone(apiFail)}`}>
+                {run ? `${apiOk}/${apiTotal || apiOk + apiFail}` : "—"}
+              </div>
+              <p className="mt-1 text-xs text-muted">
+                {apiFail ? `${apiFail} failing` : "All passing / no run"}
+              </p>
             </button>
             <button
               type="button"
-              onClick={() => setShowInventory((v) => !v)}
-              className="hm-btn hm-btn-ghost"
+              onClick={() => setTab("pages")}
+              className={`hm-stat text-left transition ${tab === "pages" ? "ring-1 ring-pages/40" : ""}`}
             >
-              {showInventory ? "Hide inventory" : "All routes"}
+              <div className="hm-stat-label text-pages">PageSpeed</div>
+              <div className={`hm-stat-value ${ratioTone(pageFail)}`}>
+                {run ? `${pageOk}/${pageOk + pageFail}` : "—"}
+              </div>
+              <p className="mt-1 text-xs text-muted">
+                Mobile + desktop Lighthouse scores
+              </p>
+            </button>
+            <button
+              type="button"
+              onClick={() => setTab("security")}
+              className={`hm-stat text-left transition ${tab === "security" ? "ring-1 ring-security/40" : ""}`}
+            >
+              <div className="hm-stat-label text-security">Security</div>
+              <div className={`hm-stat-value ${ratioTone(securityFail)}`}>
+                {run ? `${securityOk}/${securityOk + securityFail}` : "—"}
+              </div>
+              <p className="mt-1 text-xs text-muted">
+                HTTPS + headers + cookie flags
+              </p>
             </button>
           </div>
         </section>
 
-        {showInventory && (
-          <section>
-            <SectionTitle
-              title="API inventory"
-              meta="Full foundation-be route list. Smoke = GET without path params (tenant/public)."
-            />
-            <div className="hm-scroll">
-              <table className="hm-table min-w-[40rem]">
-                <thead>
-                  <tr>
-                    <th>Method</th>
-                    <th>Path</th>
-                    <th>Surface</th>
-                    <th>Smoke</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {inventoryRoutes.map((r) => (
-                    <tr key={`${r.method}-${r.path}`}>
-                      <td className="font-mono text-xs">{r.method}</td>
-                      <td className="font-mono text-xs">{r.path}</td>
-                      <td className="text-muted">{r.surface ?? "—"}</td>
-                      <td>
-                        {r.smoke ? (
-                          <span className="hm-badge hm-badge-ok">yes</span>
-                        ) : (
-                          <span className="hm-badge hm-badge-muted">
-                            {r.hasParam
-                              ? "param"
-                              : r.method !== "GET"
-                                ? "mutate"
-                                : (r.surface ?? "skip")}
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )}
-
         {error && (
-          <p className="border border-fail/30 bg-fail/10 px-3 py-2 text-sm text-fail">
+          <p className="rounded-xl border border-fail/30 bg-fail/10 px-4 py-3 text-sm text-fail">
             {error}
           </p>
         )}
 
         {running && (
-          <p className="text-sm text-muted">
-            Check in progress — API smoke + PageSpeed can take several minutes.
-          </p>
+          <div className="flex items-center gap-3 rounded-xl border border-accent/25 bg-accent/5 px-4 py-3 text-sm text-muted">
+            <Spinner />
+            Check in progress — API smoke, PageSpeed, and security can take several
+            minutes.
+          </div>
         )}
 
-        {loading && !run && !running && (
-          <p className="text-sm text-muted">Loading latest results…</p>
+        {/* Section tabs */}
+        <div className="flex flex-wrap gap-2 border-b border-border pb-3">
+          {tabs.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              onClick={() => setTab(t.id)}
+              className={`hm-btn ${tab === t.id ? "hm-btn-active" : "hm-btn-ghost"}`}
+            >
+              <span className={tab === t.id ? t.tone : ""}>{t.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {!run && !running && !loading && (
+          <div className="rounded-xl border border-dashed border-border-strong px-6 py-12 text-center">
+            <p className="text-base font-medium">No results yet</p>
+            <p className="mt-1 text-sm text-muted">
+              Run a full check to populate API, PageSpeed, and security sections.
+            </p>
+            <button
+              type="button"
+              onClick={() => void onRun()}
+              disabled={running}
+              className="hm-btn hm-btn-primary mt-5"
+            >
+              {running ? (
+                <>
+                  <Spinner /> Running…
+                </>
+              ) : (
+                "Run first check"
+              )}
+            </button>
+          </div>
         )}
 
-        {!loading && !run && !error && !running && (
-          <p className="border border-dashed border-border px-4 py-8 text-center text-sm text-muted">
-            No runs yet. Click <span className="text-foreground">Run now</span> to
-            start.
-          </p>
-        )}
-
-        <section>
-          <SectionTitle
-            title="API smoke"
-            meta={
-              run
-                ? `${filteredApis.length} shown · ${apiOk} ok · ${apiFail} fail`
-                : "Results appear after a run"
-            }
-            actions={
+        {tab === "apis" && (
+          <section className="hm-panel hm-panel-accent-api">
+            <div className="hm-panel-head">
+              <div>
+                <h2 className="text-base font-semibold text-api">API smoke</h2>
+                <p className="mt-1 text-sm text-muted">
+                  {run
+                    ? `${filteredApis.length} shown · ${apiOk} ok · ${apiFail} fail`
+                    : "Backend GET probes — status + latency"}
+                </p>
+              </div>
               <div className="flex flex-wrap items-center gap-2">
                 <input
                   type="search"
@@ -619,120 +659,334 @@ export function Dashboard() {
                     type="button"
                     onClick={() => setApiFilter(f)}
                     className={`hm-btn ${
-                      apiFilter === f ? "hm-btn-primary" : "hm-btn-ghost"
+                      apiFilter === f ? "hm-btn-active" : "hm-btn-ghost"
                     }`}
                   >
                     {f}
                   </button>
                 ))}
               </div>
-            }
-          />
-          <div className="hm-scroll">
-            <table className="hm-table min-w-[44rem]">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Method</th>
-                  <th>Path</th>
-                  <th>Status</th>
-                  <th>Latency</th>
-                  <th>Checked</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredApis.map((r: ApiCheckResult) => (
-                  <tr key={r.id}>
-                    <td className="max-w-[12rem] truncate font-medium" title={r.name}>
-                      {r.name.replace(/^GET\s+/i, "")}
-                    </td>
-                    <td className="font-mono text-xs text-muted">{r.method}</td>
-                    <td className="max-w-[20rem] truncate font-mono text-xs" title={r.path}>
-                      {r.path}
-                    </td>
-                    <td>
-                      <span
-                        className={`hm-badge ${r.ok ? "hm-badge-ok" : "hm-badge-fail"}`}
-                        title={r.error ?? undefined}
-                      >
-                        <span className={`hm-dot ${r.ok ? "hm-dot-ok" : "hm-dot-fail"}`} />
-                        {r.statusCode ?? "err"}
-                        {!r.ok && r.error ? (
-                          <span className="max-w-[10rem] truncate opacity-80">
-                            {r.error.replace(/^HTTP\s+/, "")}
+            </div>
+            <div className="hm-panel-body">
+              <div className="hm-scroll">
+                <table className="hm-table min-w-[44rem]">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Method</th>
+                      <th>Path</th>
+                      <th>Status</th>
+                      <th>Latency</th>
+                      <th>Checked</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredApis.map((r: ApiCheckResult) => (
+                      <tr key={r.id}>
+                        <td
+                          className="max-w-[12rem] truncate font-medium"
+                          title={r.name}
+                        >
+                          {r.name.replace(/^GET\s+/i, "")}
+                        </td>
+                        <td className="font-mono text-xs text-muted">
+                          {r.method}
+                        </td>
+                        <td
+                          className="max-w-[20rem] truncate font-mono text-xs"
+                          title={r.path}
+                        >
+                          {r.path}
+                        </td>
+                        <td>
+                          <span
+                            className={`hm-badge ${r.ok ? "hm-badge-ok" : "hm-badge-fail"}`}
+                            title={r.error ?? undefined}
+                          >
+                            <span
+                              className={`hm-dot ${r.ok ? "hm-dot-ok" : "hm-dot-fail"}`}
+                            />
+                            {r.statusCode ?? "err"}
                           </span>
-                        ) : null}
-                      </span>
-                    </td>
-                    <td className="font-mono text-xs tabular-nums text-muted">
-                      {r.latencyMs == null ? "—" : `${r.latencyMs}ms`}
-                    </td>
-                    <td className="font-mono text-xs text-muted">
-                      {formatWhen(r.checkedAt)}
-                    </td>
-                  </tr>
-                ))}
-                {!filteredApis.length && (
-                  <tr>
-                    <td colSpan={6} className="py-6 text-center text-muted">
-                      {run ? "No rows match this filter." : "No API results yet."}
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </section>
+                        </td>
+                        <td className="font-mono text-xs tabular-nums text-muted">
+                          {r.latencyMs == null ? "—" : `${r.latencyMs}ms`}
+                        </td>
+                        <td className="font-mono text-xs text-muted">
+                          {formatWhen(r.checkedAt)}
+                        </td>
+                      </tr>
+                    ))}
+                    {!filteredApis.length && (
+                      <tr>
+                        <td colSpan={6} className="py-10 text-center text-muted">
+                          {run
+                            ? "No rows match this filter."
+                            : "No API results yet."}
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
 
-        <section>
-          <SectionTitle
-            title="Pages · PageSpeed"
-            meta="P / A11Y / BP / SEO · green ≥90 · amber 50–89 · red &lt;50 · LCP red if ≥2.5s"
-          />
-          <div className="hm-scroll">
-            <table className="hm-table min-w-[56rem]">
-              <thead>
-                <tr>
-                  <th rowSpan={2} className="align-bottom">
-                    Page
-                  </th>
-                  <th colSpan={6} className="text-center normal-case tracking-normal">
-                    Mobile
-                  </th>
-                  <th colSpan={6} className="text-center normal-case tracking-normal">
-                    Desktop
-                  </th>
-                </tr>
-                <tr>
-                  {["P", "A11Y", "BP", "SEO", "LCP", "CLS", "P", "A11Y", "BP", "SEO", "LCP", "CLS"].map(
-                    (h, i) => (
-                      <th key={`${h}-${i}`}>{h}</th>
-                    ),
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {(run?.pageResults ?? []).map((p: PageCheckResult) => (
-                  <tr key={p.id}>
-                    <td>
-                      <div className="font-medium">{p.name}</div>
-                      <div className="font-mono text-xs text-muted">{p.path}</div>
-                    </td>
-                    <StrategyCells s={p.mobile} />
-                    <StrategyCells s={p.desktop} />
-                  </tr>
-                ))}
-                {!run?.pageResults?.length && (
-                  <tr>
-                    <td colSpan={13} className="py-6 text-center text-muted">
-                      No page results yet.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </section>
+        {tab === "pages" && (
+          <section className="hm-panel hm-panel-accent-pages">
+            <div className="hm-panel-head">
+              <div>
+                <h2 className="text-base font-semibold text-pages">
+                  Pages · PageSpeed
+                </h2>
+                <p className="mt-1 text-sm text-muted">
+                  P / A11Y / BP / SEO · green ≥90 · amber 50–89 · red &lt;50 · LCP
+                  red if ≥2.5s
+                </p>
+              </div>
+            </div>
+            <div className="hm-panel-body">
+              <div className="hm-scroll">
+                <table className="hm-table min-w-[56rem]">
+                  <thead>
+                    <tr>
+                      <th rowSpan={2} className="align-bottom">
+                        Page
+                      </th>
+                      <th
+                        colSpan={6}
+                        className="text-center normal-case tracking-normal"
+                      >
+                        Mobile
+                      </th>
+                      <th
+                        colSpan={6}
+                        className="text-center normal-case tracking-normal"
+                      >
+                        Desktop
+                      </th>
+                    </tr>
+                    <tr>
+                      {[
+                        "P",
+                        "A11Y",
+                        "BP",
+                        "SEO",
+                        "LCP",
+                        "CLS",
+                        "P",
+                        "A11Y",
+                        "BP",
+                        "SEO",
+                        "LCP",
+                        "CLS",
+                      ].map((h, i) => (
+                        <th key={`${h}-${i}`}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(run?.pageResults ?? []).map((p: PageCheckResult) => (
+                      <tr key={p.id}>
+                        <td>
+                          <div className="font-medium">{p.name}</div>
+                          <div className="font-mono text-xs text-muted">
+                            {p.path}
+                          </div>
+                        </td>
+                        <StrategyCells s={p.mobile} />
+                        <StrategyCells s={p.desktop} />
+                      </tr>
+                    ))}
+                    {!run?.pageResults?.length && (
+                      <tr>
+                        <td colSpan={13} className="py-10 text-center text-muted">
+                          No page results yet.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {tab === "security" && (
+          <section className="hm-panel hm-panel-accent-security">
+            <div className="hm-panel-head">
+              <div>
+                <h2 className="text-base font-semibold text-security">
+                  Security
+                </h2>
+                <p className="mt-1 text-sm text-muted">
+                  {run
+                    ? `${securityOk} ok · ${securityFail} fail · HTTPS + headers (+ cookies when present)`
+                    : "HTTPS, HSTS, CSP, clickjacking, Referrer-Policy, cookie flags"}
+                </p>
+              </div>
+            </div>
+            <div className="hm-panel-body">
+              <div className="hm-scroll">
+                <table className="hm-table min-w-[48rem]">
+                  <thead>
+                    <tr>
+                      <th>Target</th>
+                      <th>Overall</th>
+                      <th>Check</th>
+                      <th>Result</th>
+                      <th>Detail</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(run?.securityResults ?? []).flatMap(
+                      (r: SecurityCheckResult) => {
+                        const findings = r.findings.length
+                          ? r.findings
+                          : ([
+                              {
+                                id: "none",
+                                target: r.url,
+                                check: "—",
+                                ok: r.ok,
+                                detail: r.error ?? "No findings",
+                                severity: r.ok ? "info" : "fail",
+                              },
+                            ] as SecurityFinding[]);
+                        return findings.map((f, i) => (
+                          <tr key={`${r.id}-${f.id}-${i}`}>
+                            {i === 0 ? (
+                              <td
+                                rowSpan={findings.length}
+                                className="align-top"
+                              >
+                                <div className="font-medium">{r.name}</div>
+                                <div
+                                  className="max-w-[16rem] truncate font-mono text-xs text-muted"
+                                  title={r.url}
+                                >
+                                  {r.url}
+                                </div>
+                              </td>
+                            ) : null}
+                            {i === 0 ? (
+                              <td
+                                rowSpan={findings.length}
+                                className="align-top"
+                              >
+                                <span
+                                  className={`hm-badge ${r.ok ? "hm-badge-ok" : "hm-badge-fail"}`}
+                                >
+                                  {r.ok ? "pass" : "fail"}
+                                </span>
+                              </td>
+                            ) : null}
+                            <td className="text-xs">{f.check}</td>
+                            <td>
+                              <span
+                                className={`hm-badge ${
+                                  f.ok
+                                    ? "hm-badge-ok"
+                                    : f.severity === "warn"
+                                      ? "hm-badge-warn"
+                                      : "hm-badge-fail"
+                                }`}
+                              >
+                                {f.ok ? "ok" : f.severity}
+                              </span>
+                            </td>
+                            <td
+                              className="max-w-[24rem] truncate font-mono text-xs text-muted"
+                              title={f.detail}
+                            >
+                              {f.detail}
+                            </td>
+                          </tr>
+                        ));
+                      },
+                    )}
+                    {!run?.securityResults?.length && (
+                      <tr>
+                        <td colSpan={5} className="py-10 text-center text-muted">
+                          No security results yet.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {tab === "inventory" && (
+          <section className="hm-panel hm-panel-accent-neutral">
+            <div className="hm-panel-head">
+              <div>
+                <h2 className="text-base font-semibold">API inventory</h2>
+                <p className="mt-1 text-sm text-muted">
+                  {inventoryStats
+                    ? `${inventoryStats.total} routes · ${inventoryStats.smokeCount} smoke GETs`
+                    : "Full foundation-be route list"}
+                  {inventoryStats &&
+                    Object.entries(inventoryStats.byMethod).length > 0 && (
+                      <>
+                        {" "}
+                        ·{" "}
+                        {Object.entries(inventoryStats.byMethod)
+                          .map(([m, n]) => `${m} ${n}`)
+                          .join(" · ")}
+                      </>
+                    )}
+                </p>
+              </div>
+            </div>
+            <div className="hm-panel-body">
+              <div className="hm-scroll">
+                <table className="hm-table min-w-[40rem]">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Path</th>
+                      <th>Surface</th>
+                      <th>Smoke</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {inventoryRoutes.map((r) => (
+                      <tr key={`${r.method}-${r.path}`}>
+                        <td className="font-mono text-xs">{r.method}</td>
+                        <td className="font-mono text-xs">{r.path}</td>
+                        <td className="text-muted">{r.surface ?? "—"}</td>
+                        <td>
+                          {r.smoke ? (
+                            <span className="hm-badge hm-badge-ok">yes</span>
+                          ) : (
+                            <span className="hm-badge hm-badge-muted">
+                              {r.hasParam
+                                ? "param"
+                                : r.method !== "GET"
+                                  ? "mutate"
+                                  : (r.surface ?? "skip")}
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                    {!inventoryRoutes.length && (
+                      <tr>
+                        <td colSpan={4} className="py-10 text-center text-muted">
+                          Inventory not loaded.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        )}
       </main>
     </div>
   );

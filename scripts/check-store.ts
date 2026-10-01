@@ -6,7 +6,14 @@ import { getLatestRun, saveRun } from "../src/lib/store";
 
 async function main() {
   const run = await saveRun({
-    summary: { apiOk: 1, apiFail: 0, pageOk: 0, pageFail: 0 },
+    summary: {
+      apiOk: 1,
+      apiFail: 0,
+      pageOk: 0,
+      pageFail: 0,
+      securityOk: 1,
+      securityFail: 0,
+    },
     apiResults: [
       {
         id: "smoke",
@@ -21,6 +28,7 @@ async function main() {
       },
     ],
     pageResults: [],
+    securityResults: [],
   });
 
   const latest = await getLatestRun();

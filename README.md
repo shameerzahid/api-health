@@ -1,6 +1,6 @@
 # Foundation Health Monitor
 
-Separate Next.js app that smoke-checks Foundation APIs and runs Google PageSpeed Insights on key CRM pages. Dark dashboard for Super Admin use. Deploys on Vercel with cron.
+Separate Next.js app that smoke-checks Foundation APIs, runs PageSpeed on CRM pages, and probes basic security headers. Dark dashboard for Super Admin use. Deploys on Vercel with cron.
 
 No Nest/Express backend — Next.js App Router API routes only.
 
@@ -42,6 +42,7 @@ Optional Vercel KV vars are listed in `.env.example` if you prefer KV later.
 - **API inventory** — generated from `foundation-be` controllers into `config/api-inventory.json` (**303** routes). Regenerate with `npm run generate:api-inventory` (set `FOUNDATION_BE_SRC` if the BE isn’t a sibling checkout).
 - **API smoke** — all **GET** routes without path params on tenant/public surfaces (~70). Field/platform and mutating methods are inventory-only (different auth / would change data).
 - **Pages** — ~8 CRM routes; each checked mobile + desktop via PSI
+- **Security** — HTTPS + headers (HSTS, X-Content-Type-Options, clickjacking/CSP, Referrer-Policy, Permissions-Policy) on API `/health` and web `/` + `/login`; cookie Secure/HttpOnly/SameSite when Set-Cookie is present
 
 Prod Foundation does not expose Swagger (`/api/docs-json`); controller scan is the inventory source.
 

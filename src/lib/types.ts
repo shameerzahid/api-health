@@ -30,11 +30,32 @@ export type PageCheckResult = {
   checkedAt: string;
 };
 
+export type SecurityFinding = {
+  id: string;
+  target: string;
+  check: string;
+  ok: boolean;
+  detail: string;
+  severity: "info" | "warn" | "fail";
+};
+
+export type SecurityCheckResult = {
+  id: string;
+  name: string;
+  url: string;
+  ok: boolean;
+  findings: SecurityFinding[];
+  checkedAt: string;
+  error: string | null;
+};
+
 export type CheckRunSummary = {
   apiOk: number;
   apiFail: number;
   pageOk: number;
   pageFail: number;
+  securityOk: number;
+  securityFail: number;
 };
 
 export type CheckRun = {
@@ -43,4 +64,5 @@ export type CheckRun = {
   summary: CheckRunSummary;
   apiResults: ApiCheckResult[];
   pageResults: PageCheckResult[];
+  securityResults: SecurityCheckResult[];
 };

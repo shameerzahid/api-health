@@ -1,5 +1,9 @@
 import { checkApis } from "@/lib/check-apis";
 import { checkPages, summarizePageResults } from "@/lib/check-pages";
+import {
+  checkSecurity,
+  summarizeSecurityResults,
+} from "@/lib/check-security";
 import { getMonitorSession, saveRun } from "@/lib/store";
 import type { CheckRunSummary } from "@/lib/types";
 
@@ -46,16 +50,31 @@ async function handle(req: Request): Promise<Response> {
   try {
     const apiResults = await checkApis();
     const pageResults = await checkPages();
+    const securityResults = await checkSecurity();
 
     const apiOk = apiResults.filter((r) => r.ok).length;
     const apiFail = apiResults.length - apiOk;
     const { pageOk, pageFail } = summarizePageResults(pageResults);
+    const { securityOk, securityFail } =
+      summarizeSecurityResults(securityResults);
 
-    const summary: CheckRunSummary = { apiOk, apiFail, pageOk, pageFail };
-    const run = await saveRun({ summary, apiResults, pageResults });
+    const summary: CheckRunSummary = {
+      apiOk,
+      apiFail,
+      pageOk,
+      pageFail,
+      securityOk,
+      securityFail,
+    };
+    const run = await saveRun({
+      summary,
+      apiResults,
+      pageResults,
+      securityResults,
+    });
 
     return Response.json({
-      ok: apiFail === 0 && pageFail === 0,
+      ok: apiFail === 0 && pageFail === 0 && securityFail === 0,
       summary,
       checkedAt: run.checkedAt,
       id: run.id,
